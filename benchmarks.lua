@@ -12,10 +12,10 @@ benchmark.register("metavectors:metavectors",{
 	run = function(data)
 		local v = mvector.new(data[1],data[2],data[3])
 		assert(v + v - v == v)
-		assert(v.." test" == minetest.pos_to_string(v).." test")
+		assert(v.." test" == tostring(v).." test")
 		assert(v*2 == v+v)
 		assert(v*v/2)
-		assert(mvector.parse(minetest.pos_to_string(v)) == v)
+		assert(mvector.parse(tostring(v)) == v)
 	end,
 })
 

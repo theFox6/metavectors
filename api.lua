@@ -66,6 +66,9 @@ end
 mvector_meta.__unm = function(a)
 	return nv(-a.x,-a.y,-a.z)
 end
+mvector_meta.__tostring = function(a)
+	return minetest.pos_to_string(a)
+end
 mvector_meta.__concat = function(a,b)
 	local str_a
 	if mvector.is_metavector(a) then
