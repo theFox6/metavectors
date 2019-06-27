@@ -1,24 +1,24 @@
 local init = os.clock()
 minetest.log("action", "["..minetest.get_current_modname().."] loading...")
 
-metavectors = {}
+metavector_mod = {}
 local modpath = minetest.get_modpath("metavectors")
 
 local modules = {
-  init = metavectors -- just in case anybody tries funny stuff
+  init = metavector_mod -- just in case anybody tries funny stuff
 }
 
-function metavectors.require(module)
+function metavector_mod.require(module)
   if not modules[module] then
     modules[module] = dofile(modpath.."/"..module..".lua") or true
   end
   return modules[module]
 end
 
-metavectors.metavector = metavectors.require("api")
+metavector_mod.metavector = metavector_mod.require("metavectors")
 
 if minetest.get_modpath("benchmark_engine") then
-	metavectors.require("benchmarks")
+	metavector_mod.require("benchmarks")
 end
 
 local time_to_load = os.clock() - init
