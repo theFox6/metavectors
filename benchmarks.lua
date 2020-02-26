@@ -1,4 +1,4 @@
-local mvector = metavectors.require("api")
+local mvector = metavector_mod.require("metavectors")
 
 benchmark.register("metavectors:metavectors",{
 	warmup = 5000,
